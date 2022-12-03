@@ -16,32 +16,46 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-function validateInput(testInput) {
-if (testInput === ""){
-    return "Is empty";
-   } else if (typeof testInput === 'number'){
-    return "Is a number";
-   } else if (typeof testInput !== 'number'){
-    return "Not a number";
-   }
+// function validateInput(testInput) {
+// if (testInput === ""){
+//     return "Is empty";
+//    } else if (typeof testInput === 'number'){
+//     return "Is a number";
+//    } else if (typeof testInput !== 'number'){
+//     return "Not a number";
+//    }
 
-}   
+// }   
+
+function validateInput(testInput){
+    if (testInput === ''){
+        return "empty"
+    } else if (isNaN(testInput)){
+        return "Not a number"
+    } else if (!isNaN(testInput)){
+        return "Is a number"
+    }
+}
+
+
 
 
     
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
-let form = document.querySelector('form');
-form.addEventListener('submit', function(event){
+console.log(list);
+// console.log(document, list, pilot, copilot, fuelLevel, cargoLevel)
+document.addEventListener('submit', function(event){
 
-let pilotInput = document.getElementById('pilotName');
-let copilotInput = document.getElementById('copilotName');
-let fuelInput = document.getElementById('fuelLevel');
-let cargoInput = document.getElementById('cargoMass');
 
-if (validateInput(pilotInput) !== 'Not a number' || validateInput(copilotInput !== 'Not a number' || fuelInput !== 'Is a number' || cargoInput !== 'Is a number')){
-    alert("Make sure to enter valid information for each field");
+if (validateInput(pilot.value) !== 'Not a number' || validateInput(copilot.value) !== 'Not a number' || validateInput(fuelLevel.value) !== 'Is a number' || validateInput(cargoLevel.value) !== 'Is a number'){
+    // alert("Make sure to enter valid information for each field");
+    alert(`${validateInput(pilot.value)} ${pilot.value}
+    ${validateInput(copilot.value)} ${copilot.value}
+    ${validateInput(fuelLevel.value)} ${fuelLevel.value}
+    ${validateInput(cargoLevel.value)} ${cargoLevel.value}
+   `)
     event.preventDefault();
 }
 
