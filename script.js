@@ -16,13 +16,20 @@ window.addEventListener("load", function() {
 //    })
    
   
-   const form = document.querySelector('form');
+   const doc = document.querySelector('body');
+   
+
+   const pilotStatus = document.getElementById('pilotStatus');
+   const copilotStatus = document.getElementById('copilotStatus');
+   const fuelStatus = document.getElementById('fuelStatus');
+   const cargoStatus = document.getElementById('cargoStatus');
+   const list = [pilotStatus, copilotStatus, fuelStatus, cargoStatus];
 
    const pilotInput = document.getElementById('pilotName');
    const copilotInput = document.querySelector('[name=copilotName]');
    const fuelInput = document.querySelector('[name=fuelLevel]');
    const cargoInput = document.querySelector('[name=cargoMass]');
-   const testList = 'test';
+   
    
 
  
@@ -30,7 +37,7 @@ window.addEventListener("load", function() {
 //    form.addEventListener('submit', function(){
 
 
-   formSubmission(form, testList, pilotInput, copilotInput, fuelInput, cargoInput);
+   formSubmission(doc, list, pilotInput, copilotInput, fuelInput, cargoInput);
   
 // })
 
