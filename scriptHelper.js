@@ -30,18 +30,17 @@ function validateInput(testInput){
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
-
-
 const form = document.querySelector('form');
+const pilotStatus = document.getElementById('pilotStatus');
+const copilotStatus = document.getElementById('copilotStatus');
+const fuelStatus = document.getElementById('fuelStatus');
+const cargoStatus = document.getElementById('cargoStatus');
 
+const launchStatus = document.querySelector('h2');
+
+list.style.visibility = 'hidden';
 
 form.addEventListener('submit', function(event){
-    const pilotStatus = document.getElementById('pilotStatus');
-    const copilotStatus = document.getElementById('copilotStatus');
-    const fuelStatus = document.getElementById('fuelStatus');
-    const cargoStatus = document.getElementById('cargoStatus');
-    const launchStatus = document.querySelector('h2');
-    list.style.visibility = 'hidden';
 
 if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value) !== 'Not a Number' || validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number'){
     alert("Make sure to enter valid information for each field");
