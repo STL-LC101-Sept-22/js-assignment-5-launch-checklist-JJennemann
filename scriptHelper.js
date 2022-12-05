@@ -28,6 +28,8 @@ function validateInput(testInput){
     }
 }
 
+
+
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 const form = document.querySelector('form');
@@ -36,7 +38,7 @@ const copilotStatus = document.getElementById('copilotStatus');
 const fuelStatus = document.getElementById('fuelStatus');
 const cargoStatus = document.getElementById('cargoStatus');
 const launchStatus = document.getElementById('launchStatus');
-list.style.visibility = 'hidden';
+
 
 
 // form.addEventListener('submit', function(event){
