@@ -27,13 +27,13 @@ const list = document.getElementById('faultyItems');
 list.style.visibility = 'hidden';
 form.addEventListener('submit', function(event){
     
-    const pilotInput = document.getElementById('pilotName');
-    const copilotInput = document.querySelector('[name=copilotName]');
-    const fuelInput = document.querySelector('[name=fuelLevel]');
-    const cargoInput = document.querySelector('[name=cargoMass]');
-   console.log(pilotInput["value"])
+    const pilotInput = document.getElementById('pilotName')["value"];
+    const copilotInput = document.querySelector('[name=copilotName]')["value"];
+    const fuelInput = document.querySelector('[name=fuelLevel]')["value"];
+    const cargoInput = document.querySelector('[name=cargoMass]')["value"];
+   console.log(pilotInput)
    
-   formSubmission(window.document, list, pilotInput["value"], copilotInput["value"], fuelInput["value"], cargoInput["value"]);
+   formSubmission(window.document, list, pilotInput, copilotInput, fuelInput, cargoInput);
    event.preventDefault();
     })
 

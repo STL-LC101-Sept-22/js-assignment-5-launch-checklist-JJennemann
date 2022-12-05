@@ -16,7 +16,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    </ol>
    <img src="${imageUrl}">
    `
-}
+};
 
 function validateInput(testInput){
     if (testInput === ''){
@@ -26,21 +26,15 @@ function validateInput(testInput){
     } else if (!isNaN(testInput)){
         return 'Is a Number'
     }
-}
-
-
-
+};
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-
 
 const pilotStatus = document.getElementById('pilotStatus');
 const copilotStatus = document.getElementById('copilotStatus');
 const fuelStatus = document.getElementById('fuelStatus');
 const cargoStatus = document.getElementById('cargoStatus');
 const launchStatus = document.getElementById('launchStatus');
-
-
 
 // form.addEventListener('submit', function(event){
 
@@ -97,29 +91,15 @@ if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a 
 };
 
 async function myFetch() {
-    
-
     let response = await fetch('https://handlers.education.launchcode.org/static/planets.json');
     let planetsReturned = await response.json();
-
     return planetsReturned;
-
-    // ----original myFetch() code 
-    // let planetsReturned;
-
-    // planetsReturned = await fetch("").then( function(response) {
-    //    response.json() });
-
-    // return planetsReturned;
-}
+};
 
 function pickPlanet(planets) {
-
     let i = Math.floor(Math.random() * 5)
-
     return planets[i];
-
-}
+};
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
