@@ -3,15 +3,16 @@
 
 
 window.addEventListener("load", function() {
-    const doc = document.querySelector('body');
+    const doc = document.querySelector('html');
    
 
-    const pilotStatus = document.getElementById('pilotStatus');
-    const copilotStatus = document.getElementById('copilotStatus');
-    const fuelStatus = document.getElementById('fuelStatus');
-    const cargoStatus = document.getElementById('cargoStatus');
-    const list = [pilotStatus, copilotStatus, fuelStatus, cargoStatus];
+    // const pilotStatus = document.getElementById('pilotStatus');
+    // const copilotStatus = document.getElementById('copilotStatus');
+    // const fuelStatus = document.getElementById('fuelStatus');
+    // const cargoStatus = document.getElementById('cargoStatus');
+    // const list = [pilotStatus, copilotStatus, fuelStatus, cargoStatus];
  
+    const list = document.getElementById('faultyItems');
     const pilotInput = document.getElementById('pilotName');
     const copilotInput = document.querySelector('[name=copilotName]');
     const fuelInput = document.querySelector('[name=fuelLevel]');
@@ -30,11 +31,6 @@ window.addEventListener("load", function() {
        addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
    })
 
-
-
-
- 
-   
    formSubmission(doc, list, pilotInput, copilotInput, fuelInput, cargoInput);
   
 

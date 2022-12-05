@@ -1,3 +1,5 @@
+const { isVariableDeclarationList } = require('typescript');
+
 // Write your helper functions here!
 require('isomorphic-fetch');
 
@@ -33,95 +35,82 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 // function validateInput(testInput) {
 // if (testInput === ""){
 //     return "Is empty";
-//    } else if (typeof testInput === 'number'){
-//     return "Is a number";
-//    } else if (typeof testInput !== 'number'){
-//     return "Not a number";
+//    } else if (typeof testInput === 'Number'){
+//     return "Is a Number";
+//    } else if (typeof testInput !== 'Number'){
+//     return "Not a Number";
 //    }
 
 // }   
 
 function validateInput(testInput){
     if (testInput === ''){
-        return "Empty"
+        return 'Empty'
     } else if (isNaN(testInput)){
-        return "Not a Number"
+        return 'Not a Number'
     } else if (!isNaN(testInput)){
-        return "Is a Number"
+        return 'Is a Number'
     }
 }
-
-
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 const form = document.querySelector('form');
-const newPilot = list[0];
-const newCopilot = list[1];
-const newFuelLevel = list[2];
-const newCargoLevel = list[3];
+const pilotStatus = this.document.getElementById('pilotStatus');
+const copilotStatus = this.document.getElementById('copilotStatus');
+const fuelStatus = this.document.getElementById('fuelStatus');
+const cargoStatus = this.document.getElementById('cargoStatus');
+
 const launchStatus = document.querySelector('h2');
-let launchStatusCheck = 0
 
-// When I tried using an array to check each step for ready for launch it would cause my page to reload immediately after hitting submit?
-
-// let launchStatusCheck = [];
 form.addEventListener('submit', function(event){
 
-if (validateInput(pilot.value) !== 'Not a number' || validateInput(copilot.value) !== 'Not a number' || validateInput(fuelLevel.value) !== 'Is a number' || validateInput(cargoLevel.value) !== 'Is a number'){
+if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value) !== 'Not a Number' || validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number'){
     alert("Make sure to enter valid information for each field");
 }; 
 
-if (validateInput(pilot.value) === 'Not a number'){
-    // launchStatusCheck.push(green);
-    newPilot.style.visibility = 'visible';
-    newPilot.innerHTML = `Pilot ${pilot.value} is ready for launch`;
-    launchStatusCheck += 1;
-};
-
-if (validateInput(copilot.value) === 'Not a number'){
-    newCopilot.style.visibility = 'visible';
-    newCopilot.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
-    // launchStatusCheck.push(green);
-    launchStatusCheck += 1;
-};
-
-if(validateInput(fuelLevel.value) === 'Is a number' && fuelLevel.value >= 10000){
-    newFuelLevel.style.visibility = 'visible';
-    newFuelLevel.innerHTML = "Fuel level is high enough for launch";
-    // launchStatusCheck.push(green);
-    launchStatusCheck += 1;
-};
-
-if(validateInput(fuelLevel.value) === 'Is a number' && fuelLevel.value <= 10000){
-    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-    launchStatus.style.color = 'red';
-    newFuelLevel.style.visibility = 'visible';
-    newFuelLevel.innerHTML = "Fuel level is too low for launch";
-};
-
-if(validateInput(cargoLevel.value) === 'Is a number' && cargoLevel.value <= 10000){
-    newCargoLevel.style.visibility = 'visible';
-    newCargoLevel.innerHTML = "Cargo level is low enough for launch"
-    // launchStatusCheck.push(green);
-    launchStatusCheck += 1;
-};
-
-if(validateInput(cargoLevel.value) === 'Is a number' && cargoLevel.value >= 10000){
-    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
-    launchStatus.style.color = 'red';
-    newCargoLevel.style.visibility = 'visible';
-    newCargoLevel.innerHTML = "Cargo mass too heavy for launch";
-};
-
-if(launchStatusCheck === 4){
+if(fuelLevel.value >=10000 && cargoLevel.value <10000){
+    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level is high enough for launch";
+    cargoStatus.innerHTML = "Cargo level is low enough for launch";
     launchStatus.innerHTML = "Shuttle Ready for Launch";
     launchStatus.style.color = 'green';
-}
- 
+    list.style.visibility = 'visible';
+};
+
+if(fuelLevel.value<10000 && cargoLevel.value < 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level is too low for launch";
+    cargoStatus.innerHTML = "Cargo level is low enough for launch";
+    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+    launchStatus.style.color = 'red';
+    list.style.visibility = 'visible';
+};
+
+if(fuelLevel.value>=10000 && cargoLevel.value >= 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level is high enough for launch";
+    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+    launchStatus.style.color = 'red';
+    list.style.visibility = 'visible';
+};
+
+if(fuelLevel.value<10000 && cargoLevel.value >= 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+    fuelStatus.innerHTML = "Fuel level is too low for launch";
+    cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+    launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+    launchStatus.style.color = 'red';
+    list.style.visibility = 'visible';
+};
+
 event.preventDefault();
 });
-
 };
 
 async function myFetch() {
