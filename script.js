@@ -16,15 +16,15 @@ window.addEventListener("load", function() {
        addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
    })
 
-   const doc = window.document;
+//    const doc = window.document;
    const list = document.getElementById('faultyItems');
    const pilotInput = document.getElementById('pilotName');
    const copilotInput = document.querySelector('[name=copilotName]');
    const fuelInput = document.querySelector('[name=fuelLevel]');
    const cargoInput = document.querySelector('[name=cargoMass]');
 
-   formSubmission(doc, list, pilotInput, copilotInput, fuelInput, cargoInput);
-  
+   formSubmission(window.document, list, pilotInput, copilotInput, fuelInput, cargoInput);
+
 
 
 });
