@@ -62,6 +62,8 @@ const cargoStatus = this.document.getElementById('cargoStatus');
 
 const launchStatus = document.querySelector('h2');
 
+list.style.visibility = 'hidden';
+
 form.addEventListener('submit', function(event){
 
 if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value) !== 'Not a Number' || validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number'){
