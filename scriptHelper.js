@@ -35,18 +35,21 @@ const pilotStatus = document.getElementById('pilotStatus');
 const copilotStatus = document.getElementById('copilotStatus');
 const fuelStatus = document.getElementById('fuelStatus');
 const cargoStatus = document.getElementById('cargoStatus');
+const launchStatus = document.getElementById('launchStatus');
 
-const launchStatus = document.querySelector('h2');
 
-form.addEventListener('submit', function(event){
+// form.addEventListener('submit', function(event){
 
-if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value) !== 'Not a Number' || validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number'){
+if (validateInput(pilot) !== 'Not a Number' || validateInput(copilot) !== 'Not a Number' || validateInput(fuelLevel) === 'Not a Number' || validateInput(cargoLevel) === 'Not a Number'){
     alert("Make sure to enter valid information for each field");
+    list.style.visibility='hidden';
+    launchStatus.innerHTML = 'Awaiting Information Before Launch';
+    launchStatus.style.color = 'black';
 }; 
 
-if(fuelLevel.value >=10000 && cargoLevel.value <10000){
-    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
-    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a Number' && validateInput(fuelLevel) !== 'Not a Number' && validateInput(cargoLevel) !== 'Not a Number' &&fuelLevel >=10000 && cargoLevel <10000){
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     fuelStatus.innerHTML = "Fuel level high enough for launch";
     cargoStatus.innerHTML = "Cargo mass low enough for launch";
     launchStatus.innerHTML = "Shuttle is Ready for Launch";
@@ -55,9 +58,9 @@ if(fuelLevel.value >=10000 && cargoLevel.value <10000){
     console.log(pilotStatus.textContent)
 };
 
-if(fuelLevel.value<10000 && cargoLevel.value < 10000){
-    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
-    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a Number' && validateInput(fuelLevel) !== 'Not a Number' && validateInput(cargoLevel) !== 'Not a Number' &&fuelLevel<10000 && cargoLevel < 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     fuelStatus.innerHTML = "Fuel level too low for launch";
     cargoStatus.innerHTML = "Cargo mass low enough for launch";
     launchStatus.innerHTML = "Shuttle Not Ready for Launch";
@@ -65,9 +68,9 @@ if(fuelLevel.value<10000 && cargoLevel.value < 10000){
     list.style.visibility = 'visible';
 };
 
-if(fuelLevel.value>=10000 && cargoLevel.value >= 10000){
-    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
-    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a Number' && validateInput(fuelLevel) !== 'Not a Number' && validateInput(cargoLevel) !== 'Not a Number' &&fuelLevel>=10000 && cargoLevel >= 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     fuelStatus.innerHTML = "Fuel level is high enough for launch";
     cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     launchStatus.innerHTML = "Shuttle Not Ready for Launch";
@@ -75,9 +78,9 @@ if(fuelLevel.value>=10000 && cargoLevel.value >= 10000){
     list.style.visibility = 'visible';
 };
 
-if(fuelLevel.value<10000 && cargoLevel.value >= 10000){
-    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
-    copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
+if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a Number' && validateInput(fuelLevel) !== 'Not a Number' && validateInput(cargoLevel) !== 'Not a Number' &&fuelLevel<10000 && cargoLevel >= 10000){
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     fuelStatus.innerHTML = "Fuel level too low for launch";
     cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     launchStatus.innerHTML = "Shuttle Not Ready for Launch";
@@ -86,7 +89,7 @@ if(fuelLevel.value<10000 && cargoLevel.value >= 10000){
 };
 
 event.preventDefault();
-});
+// });
 };
 
 async function myFetch() {
