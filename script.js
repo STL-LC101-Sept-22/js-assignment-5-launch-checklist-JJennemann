@@ -29,7 +29,7 @@ form.addEventListener('submit', function(event){
    console.log(pilotInput["value"])
    
    formSubmission(window.document, list, pilotInput["value"], copilotInput["value"], fuelInput["value"], cargoInput["value"]);
-//    event.preventDefault();
+   event.preventDefault();
     })
 
 });

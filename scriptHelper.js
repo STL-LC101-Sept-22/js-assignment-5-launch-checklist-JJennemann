@@ -88,7 +88,7 @@ if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a 
     list.style.visibility = 'visible';
 };
 
-event.preventDefault();
+// preventDefault();
 // });
 };
 
