@@ -45,13 +45,14 @@ if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value
 }; 
 
 if(fuelLevel.value >=10000 && cargoLevel.value <10000){
-    pilotStatus.innerHTML = `Pilot ${pilot.value} is ready for launch`;
+    pilotStatus.innerHTML = `"Pilot ${pilot.value} is ready for launch"`;
     copilotStatus.innerHTML = `Co-pilot ${copilot.value} is ready for launch`;
     fuelStatus.innerHTML = "Fuel level high enough for launch";
     cargoStatus.innerHTML = "Cargo mass low enough for launch";
     launchStatus.innerHTML = "Shuttle is Ready for Launch";
     launchStatus.style.color = 'rgb(65, 159, 106)';
     list.style.visibility = 'visible';
+    console.log(pilotStatus.textContent)
 };
 
 if(fuelLevel.value<10000 && cargoLevel.value < 10000){
