@@ -29,7 +29,7 @@ function validateInput(testInput){
 }
 
 
-list.style.visibility = 'hidden';
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
