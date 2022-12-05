@@ -36,6 +36,7 @@ const copilotStatus = document.getElementById('copilotStatus');
 const fuelStatus = document.getElementById('fuelStatus');
 const cargoStatus = document.getElementById('cargoStatus');
 const launchStatus = document.getElementById('launchStatus');
+list.style.visibility = 'hidden';
 
 
 // form.addEventListener('submit', function(event){
@@ -71,7 +72,7 @@ if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a 
 if(validateInput(pilot) === 'Not a Number' && validateInput(copilot) === 'Not a Number' && validateInput(fuelLevel) !== 'Not a Number' && validateInput(cargoLevel) !== 'Not a Number' &&fuelLevel>=10000 && cargoLevel >= 10000){
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-    fuelStatus.innerHTML = "Fuel level is high enough for launch";
+    fuelStatus.innerHTML = "Fuel level high enough for launch";
     cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     launchStatus.innerHTML = "Shuttle Not Ready for Launch";
     launchStatus.style.color = 'rgb(199, 37, 78)';
