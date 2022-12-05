@@ -30,7 +30,6 @@ form.addEventListener('submit', function(event){
     const copilotInput = document.querySelector('[name=copilotName]');
     const fuelInput = document.querySelector('[name=fuelLevel]');
     const cargoInput = document.querySelector('[name=cargoMass]');
-    list.style.visibility = 'hidden';
    console.log(pilotInput["value"])
    
    formSubmission(window.document, list, pilotInput["value"], copilotInput["value"], fuelInput["value"], cargoInput["value"]);
