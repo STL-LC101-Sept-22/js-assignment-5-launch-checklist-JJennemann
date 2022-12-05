@@ -16,31 +16,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    </ol>
    <img src="${imageUrl}">
    `
-   
-    // Here is the HTML formatting for our mission target div.
-   /*
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
-                    <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
-                </ol>
-                <img src="">
-   */
 }
-
-// function validateInput(testInput) {
-// if (testInput === ""){
-//     return "Is empty";
-//    } else if (typeof testInput === 'Number'){
-//     return "Is a Number";
-//    } else if (typeof testInput !== 'Number'){
-//     return "Not a Number";
-//    }
-
-// }   
 
 function validateInput(testInput){
     if (testInput === ''){
@@ -54,6 +30,8 @@ function validateInput(testInput){
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
+form.addEventListener('submit', function(event){
+
 const form = document.querySelector('form');
 const pilotStatus = document.getElementById('pilotStatus');
 const copilotStatus = document.getElementById('copilotStatus');
@@ -62,9 +40,6 @@ const cargoStatus = document.getElementById('cargoStatus');
 
 const launchStatus = document.querySelector('h2');
 
-list.style.visibility = 'hidden';
-
-form.addEventListener('submit', function(event){
 
 if (validateInput(pilot.value) !== 'Not a Number' || validateInput(copilot.value) !== 'Not a Number' || validateInput(fuelLevel.value) === 'Not a Number' || validateInput(cargoLevel.value) === 'Not a Number'){
     alert("Make sure to enter valid information for each field");
