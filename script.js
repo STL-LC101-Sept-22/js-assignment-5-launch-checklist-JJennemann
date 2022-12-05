@@ -3,22 +3,7 @@
 
 
 window.addEventListener("load", function() {
-    const doc = document.querySelector('html');
-   
-
-    // const pilotStatus = document.getElementById('pilotStatus');
-    // const copilotStatus = document.getElementById('copilotStatus');
-    // const fuelStatus = document.getElementById('fuelStatus');
-    // const cargoStatus = document.getElementById('cargoStatus');
-    // const list = [pilotStatus, copilotStatus, fuelStatus, cargoStatus];
- 
-    const list = document.getElementById('faultyItems');
-    const pilotInput = document.getElementById('pilotName');
-    const copilotInput = document.querySelector('[name=copilotName]');
-    const fuelInput = document.querySelector('[name=fuelLevel]');
-    const cargoInput = document.querySelector('[name=cargoMass]');
-
-   let listedPlanets;
+    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse = myFetch();
    listedPlanetsResponse.then(function (result) {
@@ -30,6 +15,13 @@ window.addEventListener("load", function() {
        let selectedPlanet = pickPlanet(listedPlanets);
        addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
    })
+
+   const doc = document.querySelector('html');
+   const list = document.getElementById('faultyItems');
+   const pilotInput = document.getElementById('pilotName');
+   const copilotInput = document.querySelector('[name=copilotName]');
+   const fuelInput = document.querySelector('[name=fuelLevel]');
+   const cargoInput = document.querySelector('[name=cargoMass]');
 
    formSubmission(doc, list, pilotInput, copilotInput, fuelInput, cargoInput);
   
