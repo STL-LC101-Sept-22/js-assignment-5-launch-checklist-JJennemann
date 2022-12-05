@@ -55,10 +55,10 @@ function validateInput(testInput){
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 const form = document.querySelector('form');
-const pilotStatus = this.document.getElementById('pilotStatus');
-const copilotStatus = this.document.getElementById('copilotStatus');
-const fuelStatus = this.document.getElementById('fuelStatus');
-const cargoStatus = this.document.getElementById('cargoStatus');
+const pilotStatus = document.getElementById('pilotStatus');
+const copilotStatus = document.getElementById('copilotStatus');
+const fuelStatus = document.getElementById('fuelStatus');
+const cargoStatus = document.getElementById('cargoStatus');
 
 const launchStatus = document.querySelector('h2');
 

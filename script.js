@@ -16,7 +16,7 @@ window.addEventListener("load", function() {
        addDestinationInfo(document, selectedPlanet.name, selectedPlanet.diameter, selectedPlanet.star, selectedPlanet.distance, selectedPlanet.moons, selectedPlanet.image)
    })
 
-   const doc = document.querySelector('html');
+   const doc = this.document;
    const list = document.getElementById('faultyItems');
    const pilotInput = document.getElementById('pilotName');
    const copilotInput = document.querySelector('[name=copilotName]');
