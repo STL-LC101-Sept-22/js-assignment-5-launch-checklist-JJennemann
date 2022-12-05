@@ -1,5 +1,6 @@
 
 // Write your helper functions here!
+import fetch from "node-fetch";
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
